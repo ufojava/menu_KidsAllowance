@@ -5,12 +5,25 @@
 //  Created by Ufuoma Okoro on 30/11/2019.
 //  Copyright © 2019 Ufuoma Okoro. All rights reserved.
 //
+//App to create a menu system for kids allowance
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        
+        ZStack(alignment: .trailing) {
+            //Create Rectangle
+            Rectangle()
+                .foregroundColor(.clear)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            //Call MenuItem
+            MenuItem()
+        
+        }
+        
     }
 }
 
