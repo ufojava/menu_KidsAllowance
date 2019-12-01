@@ -30,13 +30,23 @@ struct MenuItem: View {
             if showMenuItem1 { //ShowMenuItem1
                             
                 HStack { //Weekly
-                
-                    //Weekly Allowance
-                    menuItemIcons(icon: "sterlingsign.circle.fill")
-                
-                    Text("Weekly")
-                        .font(.system(size: 14))
-                        .foregroundColor(.green)
+                    
+                    Button(action: {}) {
+                        
+                        NavigationLink(destination: WeeklyAllowance()) {
+                            
+                            //Weekly Allowance
+                                menuItemIcons(icon: "sterlingsign.circle.fill")
+                            
+                                Text("Weekly")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.green)
+                            
+                        }
+                        
+                        
+                    }
+                    
                 
                 } //End of Weekly
                 
@@ -47,12 +57,21 @@ struct MenuItem: View {
                 
             
                 HStack { //monthly
-                    //Monthly Allowance
-                    menuItemIcons(icon: "sterlingsign.circle.fill")
-                
-                    Text("Monthly")
-                        .font(.system(size: 14))
-                        .foregroundColor(.blue)
+                    
+                    Button(action: {}) {
+                        
+                        NavigationLink(destination: MonthlyAllowance()) {
+                        
+                            //Monthly Allowance
+                            menuItemIcons(icon: "sterlingsign.circle.fill")
+                        
+                            Text("Monthly")
+                                .font(.system(size: 14))
+                                .foregroundColor(.blue)
+                        
+                        }
+                    
+                    }
             
                 } //End of Monthly
                 
@@ -61,12 +80,21 @@ struct MenuItem: View {
             if showMenuItem3 { //ShowMenuItem3
             
                 HStack { //Yearly
-                
-                    menuItemIcons(icon: "sterlingsign.circle.fill")
                     
-                        Text("Yearly")
-                            .font(.system(size: 14))
-                            .foregroundColor(.black)
+                    Button(action: {}) {
+                        
+                        NavigationLink(destination: YearlyAllowance()) {
+                        
+                            menuItemIcons(icon: "sterlingsign.circle.fill")
+                        
+                                Text("Yearly")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.black)
+                        
+                        }
+                
+                    }
+                    
                 } //End of Yearly
             
             } //End ShowMenuItem3
@@ -145,7 +173,6 @@ struct menuItemIcons: View {
         //Create a ZSatck to pass images through
         ZStack {
           
-        
                 Image(systemName: icon)
                     .resizable()
                     .frame(width: 55, height: 55)
@@ -156,5 +183,25 @@ struct menuItemIcons: View {
         }
             
         
+    }
+}
+
+//Test Screen
+struct WeeklyAllowance: View {
+    var body: some View {
+        Text("Weekly Allowance")
+    }
+}
+
+struct MonthlyAllowance: View {
+    var body: some View {
+        
+        Text("Monthly Allowance")
+    }
+}
+
+struct YearlyAllowance: View {
+    var body: some View {
+        Text("Yearly Allowance")
     }
 }

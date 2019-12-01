@@ -24,14 +24,19 @@ struct ContentView: View {
                 
                     //Kinds Picture
                     VStack {
-                        Spacer().frame(height: 150)
+                        Spacer().frame(height: 130)
+                        
+                        //Create Retangle start
+                        Rectangle()
+                            .fill(Color.red)
+                            .frame(width: 400, height: 10)
                         
                         
                         Image("davidMugShot")
                             .resizable()
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 5))
+                            .overlay(Circle().stroke(Color.green, lineWidth: 5))
                         
                         HStack {
                         
@@ -39,17 +44,23 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(width: 100, height: 100)
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 5))
+                                .overlay(Circle().stroke(Color.blue, lineWidth: 5))
                                 .scaledToFit()
                             
                             Image("bethanyMugShot")
                                 .resizable()
                                 .frame(width: 100, height: 100)
                                 .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 5))
+                                .overlay(Circle().stroke(Color.red, lineWidth: 5))
                                 .scaledToFit()
                         }
                     
+                        
+                        //Create Retangle end
+                        Rectangle()
+                            .fill(Color.blue)
+                            .frame(width: 400, height: 10)
+                        
                     }
                     
                     
