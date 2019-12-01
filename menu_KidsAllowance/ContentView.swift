@@ -82,7 +82,7 @@ struct ContentView: View {
     
     }//Main VStack Ends here
             
-        .navigationBarTitle(Text("Allowance")) //NavigationView Title
+        .navigationBarTitle(Text("Home 🏠")) //NavigationView Title
      
         } //End of Navigation View
     }

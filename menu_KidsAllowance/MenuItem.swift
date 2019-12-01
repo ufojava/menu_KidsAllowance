@@ -37,6 +37,7 @@ struct MenuItem: View {
                             
                             //Weekly Allowance
                                 menuItemIcons(icon: "sterlingsign.circle.fill")
+                                    .foregroundColor(Color.green)
                             
                                 Text("Weekly")
                                     .font(.system(size: 14))
@@ -64,6 +65,7 @@ struct MenuItem: View {
                         
                             //Monthly Allowance
                             menuItemIcons(icon: "sterlingsign.circle.fill")
+                                .foregroundColor(Color.blue)
                         
                             Text("Monthly")
                                 .font(.system(size: 14))
@@ -86,6 +88,7 @@ struct MenuItem: View {
                         NavigationLink(destination: YearlyAllowance()) {
                         
                             menuItemIcons(icon: "sterlingsign.circle.fill")
+                                .foregroundColor(Color.black)
                         
                                 Text("Yearly")
                                     .font(.system(size: 14))
@@ -176,7 +179,6 @@ struct menuItemIcons: View {
                 Image(systemName: icon)
                     .resizable()
                     .frame(width: 55, height: 55)
-                    .foregroundColor(Color.red)
                     .shadow(color: .gray, radius: 0.3, x: 1, y: 1)
                 
             
@@ -186,13 +188,96 @@ struct menuItemIcons: View {
     }
 }
 
-//Test Screen
+//Weekly Allowance
 struct WeeklyAllowance: View {
+    
+    @State private var childName = ""
+     
+    
+    //Calculate Child Weekly Allowance
+    var calcAllowance: Double {
+    
+    //Variable
+    var weeklyAllowance = 0.0
+    var totalWklyAllowance = 0.0
+    
+        
+        //Calculate child weekly allowance
+        
+        if self.childName == "Bethany" {
+            
+            weeklyAllowance = 5.0
+            totalWklyAllowance = weeklyAllowance * 1
+            
+        } else if self.childName == "David" {
+            
+            weeklyAllowance = 7.5
+            totalWklyAllowance = weeklyAllowance * 1
+            
+        } else if self.childName == "Victoria" {
+            
+            weeklyAllowance = 6.7
+            totalWklyAllowance = weeklyAllowance * 1
+            
+        } else {
+            
+            totalWklyAllowance = 0.0
+        }
+        
+        //Return Total Weekly Allowance
+        return totalWklyAllowance
+    }
+    
+    
     var body: some View {
-        Text("Weekly Allowance")
+        
+        //Navigation View
+       
+    
+            VStack(alignment: .leading) {
+                Text("Weekly Allowance")
+                    .font(.system(size: 25))
+                    .foregroundColor(.green)
+                Spacer().frame(height: 50)
+                
+                VStack(alignment: .leading) {
+                    TextField("Enter you first Name",text: $childName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Spacer().frame(height: 50)
+                    
+                    //Insert an Emoji
+                    if calcAllowance > 0 {
+                        
+                        Text("😊")
+                            .font(.system(size: 50))
+                    } else {
+                        
+                        Text("😩")
+                            .font(.system(size: 50))
+                    }
+                    
+                    
+                    Spacer().frame(height: 100)
+                        
+                    Text("Your allowance is: £\(calcAllowance,specifier: "%.2f")")
+                        
+                        
+                    Spacer()
+                }.font(.system(size: 25))
+                    .foregroundColor(.blue)
+                .padding()
+                
+            
+            
+            }.padding()
+        
+       
     }
 }
 
+
+//Monthly Allowance
 struct MonthlyAllowance: View {
     var body: some View {
         
@@ -200,6 +285,8 @@ struct MonthlyAllowance: View {
     }
 }
 
+
+//Yearly Allowance
 struct YearlyAllowance: View {
     var body: some View {
         Text("Yearly Allowance")
