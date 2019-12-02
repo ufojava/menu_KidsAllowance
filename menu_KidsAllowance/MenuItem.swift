@@ -14,6 +14,8 @@ struct MenuItem: View {
     @State var showMenuItem1 = false
     @State var showMenuItem2 = false
     @State var showMenuItem3 = false
+
+    
     
     //Function to display menu when button is pressed
     var body: some View {
@@ -192,6 +194,10 @@ struct menuItemIcons: View {
 struct WeeklyAllowance: View {
     
     @State private var childName = ""
+    @State private var childArtImage = ""
+    
+
+    
      
     
     //Calculate Child Weekly Allowance
@@ -206,6 +212,7 @@ struct WeeklyAllowance: View {
         
         if self.childName == "Bethany" {
             
+
             weeklyAllowance = 5.0
             totalWklyAllowance = weeklyAllowance * 1
             
@@ -229,6 +236,8 @@ struct WeeklyAllowance: View {
     }
     
     
+    
+    
     var body: some View {
         
         //Navigation View
@@ -243,8 +252,41 @@ struct WeeklyAllowance: View {
                 VStack(alignment: .leading) {
                     TextField("Enter you first Name",text: $childName)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.words)
                     
-                    Spacer().frame(height: 50)
+                    
+                    Spacer().frame(height: 100)
+                    
+                    HStack(alignment: .center) {
+                    
+                        //Insert Image into result
+                        if self.childName == "Bethany" {
+                        
+                            Image("bethanyMugShotArt")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .scaledToFit()
+                                .border(Color.black, width: 2)
+                        
+                    }   else if self.childName == "David" {
+                        
+                            Image("davidMugShotArt")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .scaledToFit()
+                                .border(Color.black, width: 2)
+                            
+                    } else if self.childName == "Victoria" {
+                        
+                            Image("VictoriaMugShotArt")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .scaledToFit()
+                                .border(Color.black, width: 2)
+                        }
+                    
+                    
+                    
                     
                     //Insert an Emoji
                     if calcAllowance > 0 {
@@ -257,17 +299,20 @@ struct WeeklyAllowance: View {
                             .font(.system(size: 50))
                     }
                     
+                    }.padding(.horizontal, 100) //HStack Ends
                     
-                    Spacer().frame(height: 100)
+                    Spacer().frame(height: 150)
                         
                     Text("Your allowance is: £\(calcAllowance,specifier: "%.2f")")
+                
+            
+                    
                         
                         
                     Spacer()
                 }.font(.system(size: 25))
                     .foregroundColor(.blue)
                 .padding()
-                
             
             
             }.padding()
